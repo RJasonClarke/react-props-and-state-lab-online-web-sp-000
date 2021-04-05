@@ -46,7 +46,7 @@ class App extends React.Component {
       return this.state.pets.find(pet => {
          if (pet.id === petId) {
            return pet.isAdopted = true
-         } 
+         }
       })
     }
 
