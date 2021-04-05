@@ -16,39 +16,39 @@ class App extends React.Component {
   }
 
   onChangeType = (e) => {
-      this.setState({
-        filters: {
-          type: e.target.value
-        }
-      })
-    }
-
-    onApi = (pet) => {
-      if (pet === 'all'){
-        return '/api/pets'
-      } else {
-        return `/api/pets?type=${pet}`
+    this.setState({
+      filters: {
+        type: e.target.value
       }
-    }
+    })
+  }
 
-    onFindPetsClick = () => {
-      fetch(this.onApi(this.state.filters.type))
-      .then(resp => resp.json())
-      .then(petData => {
-       this.setState({
-         pets: petData
-       })
-      })
-      .catch(err => err.message)
+  onApi = (pet) => {
+    if (pet === 'all'){
+      return '/api/pets'
+    } else {
+      return `/api/pets?type=${pet}`
     }
+  }
 
-    onAdoptPet = (petId) => {
-      return this.state.pets.find(pet => {
-         if (pet.id === petId) {
-           return pet.isAdopted = true
-         }
-      })
-    }
+  onFindPetsClick = () => {
+    fetch(this.onApi(this.state.filters.type))
+    .then(resp => resp.json())
+    .then(petData => {
+     this.setState({
+       pets: petData
+     })
+    })
+    .catch(err => err.message)
+  }
+
+  onAdoptPet = (petId) => {
+    return this.state.pets.find(pet => {
+       if (pet.id === petId) {
+         return pet.isAdopted = true
+       }
+    })
+  }
 
   render() {
     return (
