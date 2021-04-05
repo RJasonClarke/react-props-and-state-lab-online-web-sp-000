@@ -1,6 +1,15 @@
 import React from 'react'
 
 class Filters extends React.Component {
+  constructor(){
+    super();
+
+    this.state = {
+      filters: {
+        type: ""
+      }
+    }
+  }
   render() {
     return (
       <div className="ui form">
