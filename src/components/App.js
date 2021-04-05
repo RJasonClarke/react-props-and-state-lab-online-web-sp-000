@@ -66,6 +66,10 @@ class App extends React.Component {
               <Filters />
             </div>
             <div className="twelve wide column">
+            <PetBrowser
+              pets={this.state.pets}
+              onAdoptPet={this.onAdoptPet}
+              />
               <PetBrowser />
             </div>
           </div>
